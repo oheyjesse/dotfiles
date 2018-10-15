@@ -1,3 +1,3 @@
 # dotfiles
 
-Just mah dotfilez storage ¯\_(ツ)_/¯
+Just mah dotfilez storage ¯\\_(ツ)_/¯
