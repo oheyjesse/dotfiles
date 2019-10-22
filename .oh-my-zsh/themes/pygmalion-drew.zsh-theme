@@ -6,7 +6,8 @@ prompt_setup_pygmalion(){
   ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[yellow]%}⚡%{$reset_color%}"
   ZSH_THEME_GIT_PROMPT_CLEAN=""
 
-  base_prompt='%{$fg[magenta]%}%n%{$reset_color%}%{$fg[red]%}@%{$reset_color%}%{$fg[cyan]%}%m%{$reset_color%}%{$fg[red]%}:%{$reset_color%}%{$fg[yellow]%}%0~%{$reset_color%}%{$fg[red]%}|%{$reset_color%}'
+  # base_prompt='%{$fg[magenta]%}%n%{$reset_color%}%{$fg[red]%}@%{$reset_color%}%{$fg[cyan]%}%m%{$reset_color%}%{$fg[red]%}:%{$reset_color%}%{$fg[yellow]%}%0~%{$reset_color%}%{$fg[red]%}|%{$reset_color%}'
+  base_prompt='%{$reset_color%}%{$fg[yellow]%}%0~%{$reset_color%}%{$fg[red]%}|%{$reset_color%}'
   post_prompt=' $%{$reset_color%} '
 
   # green $
@@ -25,14 +26,23 @@ prompt_pygmalion_precmd(){
   local prompt_length=${#exp_nocolor}
 
   local nl=""
+  local venv_info=""
 
   if [[ $prompt_length -gt 50 ]]; then
     nl=$'\n%{\r%}' ;
   fi
   PROMPT="$base_prompt$nl$post_prompt "
 
+  # right prompt
+  if type "virtualenv_prompt_info" > /dev/null
+  then
+      venv_info="%{$fg[cyan]%}$(virtualenv_prompt_info)%{$reset_color%}"
+  else
+      venv_info=""
+  fi
+
   # Right hand Git Prompt
-  RPROMPT='$(git_prompt_info)'
+  RPROMPT="$(git_prompt_info)$venv_info"
 
   #Right hand Time '%*'
   # RPROMPT='%{$fg[cyan]%} %*%{$reset_color%}'

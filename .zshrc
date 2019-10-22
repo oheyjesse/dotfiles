@@ -1,16 +1,16 @@
-# ------------------------------------------------------------------------------------------------------------- Aliases
+# ---------------------------------------------------------------------- Aliases
 alias mongostart="mongod --dbpath ~/data/db"
 alias WEBrick="ruby -run -e httpd . -p 3000"
 alias lsaf="ls -AF"
 
-# ------------------------------------------------------------------------------------------------------ Aliases - Work
+# --------------------------------------------------------------- Aliases - Work
 
-alias mixwatch="sh /Users/drew.noll/code/_tools/mix_test_watch/mix_test_watch.sh"
+alias mixwatch="sh $HOME/code/_tools/mix_test_watch/mix_test_watch.sh"
 
 # import tunnel aliases
 . ~/.aliases-tunnels
 
-# ---------------------------------------------------------------------------------------------------------------- ASDF
+# ------------------------------------------------------------------------- ASDF
 # Hacky workaround compdef error
 autoload -Uz compinit
 compinit
@@ -19,10 +19,13 @@ compinit
 . $HOME/.asdf/asdf.sh
 . $HOME/.asdf/completions/asdf.bash
 
-# ------------------------------------------------------------------------------------------------Python Path (AWS Etc)
+# ------------------------------------------------------------------------- PATH
+# Python ASDF
 export PATH=~"$HOME/.asdf/shims/python:$PATH"
+# MySQL-client
+export PATH="/usr/local/opt/mysql-client/bin:$PATH"
 
-# ----------------------------------------------------------------------------------------------------------- Oh My Zsh
+# ------------------------------------------------------------------- Oh My Zsh
 
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
@@ -90,16 +93,17 @@ export UPDATE_ZSH_DAYS=30
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
   git
-  colored-man 
-  colorize 
-  github 
-  vagrant 
-  virtualenv 
-  pip 
-  python 
-  brew 
-  osx 
+  colored-man
+  colorize
+  github
+  vagrant
+  virtualenv
+  pip
+  python
+  brew
+  osx
   zsh-syntax-highlighting
+  virtualenv
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -123,3 +127,8 @@ source $ZSH/oh-my-zsh.sh
 
 # ssh
 # export SSH_KEY_PATH="~/.ssh/rsa_id"
+
+# -------------------------------------------------------- fzf bcoz nick sed so
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+bindkey '^R' fzf-history-widget
