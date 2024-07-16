@@ -5,13 +5,6 @@ alias zshrc="code ~/.zshrc"
 
 # ------------------------------------------------------------------------- PATH
 
-# ------------------------------------------- FZF (fuzzy completion with CTRL-R)
-
-# If not cloned before, clone
-[ ! -f ~/.fzf.zsh ] && git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
-
-# If it exists, integrate it
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # -------------------------------------------------------------------- Oh My Zsh
 
@@ -124,3 +117,13 @@ source $ZSH/oh-my-zsh.sh
 DISABLE_AUTO_UPDATE=true
 DISABLE_UPDATE_PROMPT=true
 
+# ------------------------------------------- FZF (fuzzy completion with CTRL-R)
+
+# If not cloned before, clone
+if [ ! -d ~/.fzf ]; then
+  git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+  ~/.fzf/install
+fi
+
+# If it exists, integrate it
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
