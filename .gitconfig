@@ -1,12 +1,6 @@
 [user]
-	name = Drew Noll
-	email = drew@myxplor.com
-[core]
-	editor = code --wait
-[diff]
-    tool = vscode
-[difftool "vscode"]
-    cmd = code --wait --diff --new-window $LOCAL $REMOTE
+	name = Jesse Noll
+	email = jesse.noll@skutopia.com
 [alias]
 	# List all aliases:
 	aliases = "!git config -l | grep alias | cut -c 7-"

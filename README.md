@@ -1,3 +1,3 @@
 # dotfiles
 
-Just mah dotfilez storage ¯\\_(ツ)_/¯
+Dotfiles storage. Synced with codespaces
